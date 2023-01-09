@@ -16,7 +16,7 @@ function Navbar() {
       <div className="searchtab flex flex-row items-center w-6/12 mx-3">
         <form
           action=""
-          className="searchform flex flex-row items-center w-full px-3 bg-[#ffffff65] rounded-lg"
+          className="searchform flex flex-row items-center w-full px-3 bg-[#585858] rounded-lg"
         >
           <button className="search px-1 flex flex-row items-center">
             <svg
@@ -32,7 +32,7 @@ function Navbar() {
             </svg>
           </button>
           <input
-            className="h-12 w-full bg-transparent"
+            className="h-12 w-full placeholder:text-[#ffffff] bg-transparent"
             type="search"
             placeholder="search"
           />

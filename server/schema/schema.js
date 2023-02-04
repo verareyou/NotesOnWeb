@@ -14,6 +14,7 @@ const NoteType = new GraphQLObjectType({
   name: "Note",
   fields: () => ({
     id: { type: GraphQLID },
+    writer: { type: GraphQLString },
     title: { type: GraphQLString },
     content: { type: GraphQLString },
   }),
@@ -46,18 +47,20 @@ const Mutation = new GraphQLObjectType({
     addNote: {
       type: NoteType,
       args: {
+        writer: { type: new GraphQLNonNull(GraphQLString) },
         title: { type: new GraphQLNonNull(GraphQLString) },
         content: { type: new GraphQLNonNull(GraphQLString) },
       },
       resolve(parent, args) {
         const note = new Note({
+          writer: args.writer,
           title: args.title,
           content: args.content,
         });
         return note.save();
       },
     },
-    deleteNote: {
+    deleteNote: {   // This is not working
       type: NoteType,
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
@@ -66,10 +69,11 @@ const Mutation = new GraphQLObjectType({
         return Note.findByIdAndRemove(args.id);
       },
     },
-    updateNote: {
+    updateNote: {   // This is not working too
       type: NoteType,
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
+        writer: { type: new GraphQLNonNull(GraphQLString) },
         title: { type: new GraphQLNonNull(GraphQLString) },
         content: { type: new GraphQLNonNull(GraphQLString) },
       },
@@ -78,6 +82,7 @@ const Mutation = new GraphQLObjectType({
           args.id,
           {
             $set: {
+              writer: args.writer,
               title: args.title,
               content: args.content,
             },

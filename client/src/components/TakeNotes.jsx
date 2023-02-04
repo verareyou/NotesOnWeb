@@ -25,10 +25,10 @@ function TakeNotes() {
     }
 
   return (
-    <div className="flex mt-4 ml-8 flex-col w-[50%] h-48 rounded-lg mb-5 bg-[#ffffff49]">
+    <div className="">
       <form
         onSubmit={onSubmit}
-        className="flex flex-col w-full h-full bg-transparent "
+        className=""
       >
         <div className="title">
           <input
@@ -36,7 +36,7 @@ function TakeNotes() {
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-2 placeholder:text-[#ffffff] bg-transparent "
+            className=""
           />
         </div>
         <div className="note">
@@ -45,14 +45,14 @@ function TakeNotes() {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Take a note..."
-            className="w-full p-2 placeholder:text-[#ffffff] bg-transparent"
+            className=""
           ></textarea>
         </div>
 
-        <div className="buttons flex justify-end">
+        <div className="">
           <button
             type="submit"
-            className="save bg-[#bcbcbc] translate-x-5 translate-y-5 text-black py-3 m-2 px-2 rounded-full ease-in-out duration-200 hover:bg-[#ffffff] "
+            className=""
           >
             save
           </button>

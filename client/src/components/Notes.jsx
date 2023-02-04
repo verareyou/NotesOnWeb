@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_NOTES } from "../queries/noteQueries.js";
 import NoteCard from "./NoteCard.jsx";
-import { DELETE_NOTE } from "../mutations/noteMutations.js";
 
 
 

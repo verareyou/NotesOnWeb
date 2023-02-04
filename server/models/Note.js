@@ -1,9 +1,14 @@
 import mongoose from "mongoose";
 
 const NoteSchema = new mongoose.Schema({
-    title: {
+    writer: {
         type: String,
         required: true,
+        default: "Anonymous",
+    },
+    title: {
+        type: String,
+        required: false,
     },
     content: {
         type: String,

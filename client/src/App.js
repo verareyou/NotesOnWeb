@@ -79,8 +79,7 @@ function App() {
 
             className="absolute text-[#545454] bottom-0 font-thin text-[100px] "
             >
-              <h1>Notes</h1>
-              <h1>On Web</h1>
+              <h1>Notes On Web</h1>
             </motion.div>
             {/* <div className="absolute flex flex-row h-[100%] top-[0] right-[8%] ">
               <motion.div

@@ -16,7 +16,7 @@ function Notes() {
     <>
       <div 
       // animate={{ x: -mouseCursor.x * 0.01, y: -mouseCursor.y * 0.01 }}
-      className=" h-full w-full flex flex-wrap overflow-auto items-center justify-center z-[0] scrollbar-thin scrollbar-thumb-[white] scrollbar-track-[#00000000] scrollbar-thumb-rounded-full scrollbar-track-rounded-full ">
+      className=" h-full w-full flex flex-wrap overflow-auto items-center justify-center translate-y-[-5%] scrollbar-thin scrollbar-thumb-[white] scrollbar-track-[#00000000] scrollbar-thumb-rounded-full scrollbar-track-rounded-full ">
         {data.notes.map((note) => (
             <NoteCard key={note.id} note={note} />
         ))}

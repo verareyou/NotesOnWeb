@@ -18,19 +18,24 @@ export default function NoteCard({ note }) {
 
   const variants = {
     initial: {
-      x: -10,
+      x: 0,
       y: -10,
     },
     middle: {
       x: 0,
       y: 0,
     },
+    exit: {
+        x: 0,
+        y: 10,
+    }
   };
 
   return (
     <>
       <motion.div
         variants={variants}
+        initial="initial"
         animate="middle"
         className=" m-2 p-2 py-2 max-w-[250px] text-white max-h-60 backdrop-blur-[2px] flex flex-wrap shadow-xl bg-[#ffffff2b]
         "
@@ -39,12 +44,16 @@ export default function NoteCard({ note }) {
         <p className=" w-full break-words py-2 ">{note.content}</p>
         <p className="text-[12px] font-light ">{note.writer}</p>
 
-        <button
+        <motion.button
+            variants={variants}
+            initial="initial"
+            animate="middle"    
+            exit="exit"
           className=" text-[12px] pl-2 text-[#ffffff] font-black "
           onClick={handleDelete}
         >
           Delete
-        </button>
+        </motion.button>
       </motion.div>
     </>
   );

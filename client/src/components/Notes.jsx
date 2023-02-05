@@ -1,18 +1,22 @@
 import { useQuery } from "@apollo/client";
 import { GET_NOTES } from "../queries/noteQueries.js";
 import NoteCard from "./NoteCard.jsx";
+// import { useState, useEffect } from "react";
+import {motion} from "framer-motion";
 
 
 
 function Notes() {
-
+  
     const { loading, error, data } = useQuery(GET_NOTES);
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
+    if (loading) return <p className="text-white">Loading...</p>;
+    if (error) return <p className="text-white">Error :(</p>;
     // console.log(data.notes);
   return (
     <>
-      <div className="savednotes grid gap-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 lg:w-[1000px] md:w-[752px] h-full ">
+      <div 
+      // animate={{ x: -mouseCursor.x * 0.01, y: -mouseCursor.y * 0.01 }}
+      className=" h-full w-full flex flex-wrap overflow-auto items-center justify-center z-[0] scrollbar-thin scrollbar-thumb-[white] scrollbar-track-[#00000000] scrollbar-thumb-rounded-full scrollbar-track-rounded-full ">
         {data.notes.map((note) => (
             <NoteCard key={note.id} note={note} />
         ))}

@@ -47,7 +47,7 @@ const Mutation = new GraphQLObjectType({
     addNote: {
       type: NoteType,
       args: {
-        writer: { type: new GraphQLNonNull(GraphQLString) },
+        writer: { type: GraphQLString },
         title: { type: new GraphQLNonNull(GraphQLString) },
         content: { type: new GraphQLNonNull(GraphQLString) },
       },

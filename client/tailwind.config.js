@@ -11,5 +11,11 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // scrollbar
+    require("tailwind-scrollbar"),
+  ],
+  variants: {
+    scrollbar: ['rounded']
+  },
 };

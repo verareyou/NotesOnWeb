@@ -1,9 +1,10 @@
 import { gql } from "@apollo/client";
 
 const ADD_NOTE = gql`
-    mutation addNote($title: String!, $content: String!) {
-        addNote(title: $title, content: $content) {
+    mutation addNote($title: String!, $writer: String!, $content: String!) {
+        addNote(title: $title, writer: $writer, content: $content) {
             id
+            writer
             title
             content
         }
@@ -25,8 +26,8 @@ const UPDATE_NOTE = gql`
         $content: String!
     ) {
         updateNote(
-            id: $id
-            title: $title
+            id: $id,
+            title: $title,
             content: $content
         ) {
             id

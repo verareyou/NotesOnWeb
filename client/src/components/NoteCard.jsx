@@ -32,7 +32,8 @@ export default function NoteCard({ note }) {
       <motion.div
         variants={variants}
         animate="middle"
-        className=" m-2 p-2 py-2 max-w-[250px] text-white max-h-60 backdrop-blur-[2px] flex flex-wrap shadow-xl bg-[#ffffff2b] "
+        className=" m-2 p-2 py-2 max-w-[250px] text-white max-h-60 backdrop-blur-[2px] flex flex-wrap shadow-xl bg-[#ffffff2b]
+        "
       >
         <h1 className=" text-lg font-bold ">{note.title}</h1>
         <p className=" w-full break-words py-2 ">{note.content}</p>

@@ -6,7 +6,7 @@ import { useState } from "react";
 function Main() {
   return (
     
-    <div className="main h-full w-full bg-[#1e1f1d] flex flex-col justify-center items-center ">
+    <div className="main h-full w-full bg-[#151515] flex flex-col justify-center items-center ">
       <div className="takenote h-[20%] w-full z-10 ">
         <TakeNotes />
       </div>

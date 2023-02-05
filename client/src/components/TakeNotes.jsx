@@ -64,7 +64,7 @@ function TakeNotes() {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Take a note..."
-              className={`bg-[#fefff392] placeholder:text-[black] backdrop-blur-[2px] focus:ring-0 h-[28px] text-left text-black focus:outline-none border-x border-[#a3a3a3] px-2 resize-none   `}
+              className={` bg-[#fefff392] placeholder:text-[black] backdrop-blur-[2px] focus:ring-0 h-[28px] text-left text-black focus:outline-none border-x border-[#a3a3a3] px-2 resize-none   `}
             ></textarea>
           </span>
 

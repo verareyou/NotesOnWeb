@@ -77,7 +77,7 @@ function App() {
             <motion.div
                 animate={{ x: mouseCursor.x * 0.05 }}
 
-            className="absolute text-[#607c44] bottom-0 font-thin text-[100px] "
+            className="absolute text-[#545454] bottom-0 font-thin text-[100px] "
             >
               <h1>Notes</h1>
               <h1>On Web</h1>

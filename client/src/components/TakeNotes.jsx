@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../mutations/noteMutations.js";
 import { GET_NOTES } from "../queries/noteQueries.js";
@@ -8,7 +8,13 @@ function TakeNotes() {
   const [title, setTitle] = useState("");
   const [writer, setWriter] = useState("Anonymous");
   const [content, setContent] = useState("");
-  const [notewidth, setNotewidth] = useState("h-[28px]");
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setScreenWidth(window.innerWidth);
+    });
+  }, []);
 
   const [addNote] = useMutation(ADD_NOTE, {
     variables: {
@@ -29,42 +35,45 @@ function TakeNotes() {
 
   return (
     <div className="h-full w-full flex justify-center items-center ">
-      <div className=" absolute left-[-100px] pl-[35%] bg-[#fefff378] backdrop-blur-[3px] h-[28px] items-center justify-center flex shadow-lg ">
+      <div className=" absolute lg:left-[-100px] lg:pl-[35%] max-lg:w-full max-lg:bg-[#ffffff] bg-[#fefff378] backdrop-blur-[3px] lg:h-[28px] items-center justify-center flex shadow-lg ">
         <form
           onSubmit={onSubmit}
-          className=" flex flex-row justify-center items-center  "
+          className=" flex flex-col h-36 max-lg:w-full lg:flex-row justify-between items-center  "
         >
-          <div className="writer">
+          <div className="writer max-lg:w-full">
             <input
               type="text"
               placeholder="writer"
               value={writer}
               onChange={(e) => setWriter(e.target.value)}
-              className=" bg-transparent text-black h-[28px] placeholder:text-[black] focus:outline-none border-x border-[#a3a3a3] px-2 "
+              className=" bg-transparent max-lg:w-full text-black h-[28px] placeholder:text-[black] focus:outline-none border-x border-[#a3a3a3] px-2 "
             />
           </div>
-          <div className="title">
+          <div className="title max-lg:w-full">
             <input
               type="text"
               placeholder="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="bg-transparent h-[28px] placeholder:text-[black] text-black focus:outline-none border-x border-[#a3a3a3] px-2  "
+              className="bg-transparent h-[28px] max-lg:w-full placeholder:text-[black] text-black focus:outline-none border-x border-[#a3a3a3] px-2  "
             />
           </div>
-          <span className={`note h-[28px] flex justify-center `}>
+          <span className={`note lg:h-[28px]  max-lg:w-full flex justify-center `}
+          
+          >
             <textarea
-              onInput={(e) => {
-                e.target.style.height = 28 + "px";
-                e.target.style.height = e.target.scrollHeight + "px";
-              }}
+             
               id="content"
               maxLength={400}
+              onInput={(e) => {
+                e.target.style.height = "auto";
+                e.target.style.height = e.target.scrollHeight + "px";
+              }}
               cols={30}
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Take a note..."
-              className={` bg-[#fefff392] placeholder:text-[black] backdrop-blur-[2px] focus:ring-0 h-[28px] text-left text-black focus:outline-none border-x border-[#a3a3a3] px-2 resize-none   `}
+              className={` bg-[#fefff392] max-lg:w-full placeholder:text-[black] backdrop-blur-[2px] focus:ring-0 h-[28px] text-left text-black focus:outline-none border-x border-[#a3a3a3] px-2 resize-none   `}
             ></textarea>
           </span>
 
@@ -72,7 +81,7 @@ function TakeNotes() {
             <button
               accessKey="enter"
               type="submit"
-              onkeypress="return event.keyCode != 13;"
+              // onkeypress="return event.keyCode != 13;"
               className=" px-2 text-[#393939] font-regular duration-100 ease-in-out hover:text-[#000000] hover:px-4 "
             >
               save

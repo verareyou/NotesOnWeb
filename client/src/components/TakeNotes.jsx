@@ -23,6 +23,7 @@ function TakeNotes() {
     e.preventDefault();
     addNote(title, writer, content);
     setTitle("");
+    // setWriter("Ano");
     setContent("");
   };
 
@@ -33,16 +34,14 @@ function TakeNotes() {
           onSubmit={onSubmit}
           className=" flex flex-row justify-center items-center  "
         >
-          <div className="writer relative group">
+          <div className="writer">
             <input
-              type="writer"
+              type="text"
               placeholder="writer"
               value={writer}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => setWriter(e.target.value)}
               className=" bg-transparent text-black h-[28px] placeholder:text-[black] focus:outline-none border-x border-[#a3a3a3] px-2 "
             />
-              <span className="absolute -bottom-0 right-0 w-0 h-2 bg-blue-400 group-hover:w-full group-hover:transition-all"></span>
-
           </div>
           <div className="title">
             <input
@@ -65,15 +64,16 @@ function TakeNotes() {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Take a note..."
-              className={`bg-[#fefff392] placeholder:text-[black] backdrop-blur-lg focus:ring-0 h-[28px] text-left text-black focus:outline-none border-x border-[#a3a3a3] px-2 resize-none   `}
+              className={`bg-[#fefff392] placeholder:text-[black] backdrop-blur-[2px] focus:ring-0 h-[28px] text-left text-black focus:outline-none border-x border-[#a3a3a3] px-2 resize-none   `}
             ></textarea>
           </span>
 
           <div className="">
             <button
               accessKey="enter"
+              type="submit"
               onkeypress="return event.keyCode != 13;"
-              className=" px-2 text-[#80907f] font-light duration-100 ease-in-out hover:text-[#000000] hover:px-4 "
+              className=" px-2 text-[#393939] font-regular duration-100 ease-in-out hover:text-[#000000] hover:px-4 "
             >
               save
             </button>
